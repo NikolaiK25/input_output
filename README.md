@@ -61,14 +61,14 @@ HTML разметкой вместо courses_url. Вуаля, мы решили 
 
 def get_course_info(html):
     # ...  parsing logic
-
+```
     rating = soup.find_all('div', attrs={'class': 'ratings-text'})
     if rating:  # check if rating is not empty list
         rating = rating[0].contents[0].text
     else:
         # we wanna be user-friendly, with nice output to xlsx
         rating = "No rating yet"
-
+```
     # .... parsing logic
 
     return course_data
@@ -112,8 +112,8 @@ days_before_start ?
 
 В результате мы пришли к ситуации, когда логика обработки данных слабо зависит:
 
-1)от источника данных;
-2)от формата вывода в файл.
+1. от источника данных;
+2. от формата вывода в файл.
 
 Кроме того, часть кода удалось превратить в [чистые функции](https://devman.org/encyclopedia/decomposition/decomposition_pure_functions/), что облегчит 
 тестирование и повторное использование.
